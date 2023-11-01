@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'CustomTabBar.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -8,36 +10,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: Scaffold(
+        body: DashboardPage(),
+      ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class DashboardItem extends StatelessWidget {
+  final String photoUrl;
+
+  DashboardItem({required this.photoUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: [
+          Image.asset(photoUrl, height: 200, width: 200),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Share'),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Dismiss'),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text("User1"),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person),
-              ),
-              accountEmail: null,
-            ),
-            ListTile(
-              title: Text("Log-Out"),
-              onTap: () {
-                // Handle the tap action for Item 1.
-              },
-            ),
-          ],
-        ),
+      appBar: customAppBar(), // Use the custom app bar here as well
+      body: ListView(
+        children: [
+          DashboardItem(photoUrl: 'assets/img1-app.png'),
+          DashboardItem(photoUrl: 'assets/img1-app.png'),
+          DashboardItem(photoUrl: 'assets/img1-app.png'),
+        ],
       ),
     );
   }
