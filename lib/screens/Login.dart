@@ -8,11 +8,10 @@ class LogIn extends StatelessWidget {
     required this.userName,
     required this.password,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     throw UnimplementedError();
   }
-
 }
