@@ -31,7 +31,11 @@ class TasksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(56.0), // Adjust the height as needed
+        child: CustomAppBar(),
+        ),
+      drawer: CustomDrawer(),
       body: ListView(
         children: [
           TasksItem(
