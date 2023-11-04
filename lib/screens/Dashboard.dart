@@ -35,7 +35,11 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(), // Use the custom app bar here as well
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(56.0), // Adjust the height as needed
+        child: CustomAppBar(),
+        ),
+      drawer: CustomDrawer(),
       body: ListView(
         children: [
           DashboardItem(photoUrl: 'assets/img1-app.png'),

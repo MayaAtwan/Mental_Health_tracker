@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/DrawerBar.dart';
 
 AppBar customAppBar() {
   return AppBar(
@@ -11,9 +10,7 @@ AppBar customAppBar() {
     leading: IconButton(
       icon: const Icon(Icons.menu),
       tooltip: 'Menu Icon',
-      onPressed: () {
-        DrawerBar;
-      },
+      onPressed: () {},
     ),
     systemOverlayStyle: SystemUiOverlayStyle.light,
     bottom: PreferredSize(
